@@ -1,0 +1,92 @@
+{
+  "layer": "top",
+  "position": "top",
+  "margin": "10 10 0 10",
+  "modules-left": ["custom/archIcon","hyprland/workspaces"],
+  "modules-center": ["clock"],
+  "modules-right": ["tray", "backlight", "pulseaudio","network", "cpu", "memory", "battery"],
+
+  "hyprland/workspaces": {
+    "format": "{name}"
+  },
+  "clock": {
+    "format": " {:%d-%m-%Y  %H:%M}",
+    "max-length": 200
+  },
+  "tray": {
+    "icon-size": 14,
+    "spacing": 5
+  },
+  "backlight": {
+    "format": "<span color='#f6c177' rise='-2pt' size='x-large'>{icon}</span> {percent}%",
+    "format-icons": ["󰛩", "󱩎", "󱩏", "󱩐", "󱩑", "󱩒", "󱩓", "󱩔", "󱩕", "󱩖", "󰛨"],
+    "on-scroll-down": "brightnessctl -c backlight set 5%-",
+    "on-scroll-up": "brightnessctl -c backlight set +5%",
+    "tooltip":false,
+  },
+  "pulseaudio": {
+    "format": "<span size='x-large' rise='-2pt' color='#9ccfd8'>{icon}</span> {volume}%",
+    "format-muted": "󰖁",
+    "format-bluetooth": "󰗾name subject to check",
+    "format-bluetooth-muted": "󰗿 name subject to check",
+    "format-icons": {
+      "default": ["󰕿", "󰖀", "󰕾"],
+      "headphone": "󱡬",
+      "speaker": ["󰕿", "󰖀", "󰕾"],
+      "hdmi": "noname2",
+      "headset": "󱇰",
+      "hands-free": "noname3",
+      "portable": "noname4",
+      "car": "noname5",
+      "hifi": "noname6",
+      "phone": "noname7"
+    },
+    "on-click": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle",
+    "on-scroll-up": "wpctl set-volume -l 1.5 @DEFAULT_AUDIO_SINK@ 5%+",
+    "on-scroll-down": "wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-",
+    "tooltip": true,
+    "tooltip-format": "Volume: {volume}%\n{desc}"
+  },
+  "cpu": {
+    "interval": 10,
+    "format": "<span color='#c4a7e7' rise='-2pt' size='x-large'>󰍛</span> {usage}%",
+    "tooltip": true,
+	  "on-click-right": "kitty --title floating_term_kitty --detach btop",
+  },
+  "memory": {
+    "interval": 10,
+    "format": "<span color='#ebbcba' rise='-2pt' size='x-large'>󰧑</span> {percentage}%",
+    "tooltip": true,
+    "tooltip-format": "RAM:\nUsed: {used} GiB\nAvailable: {avail} GiB\n\nSwap:\nUsed: {swapUsed} GiB\nAvailable: {swapAvail} GiB",
+    "on-click-right": "kitty --title floating_term_kitty --detach btop"
+  },
+  "battery": {
+    "states": {
+      "warning": 30,
+      "critical": 15
+    },
+    "bat": "BAT0",
+    "adapter": "ACAD",
+    "format": "<span rise='-2pt' size='x-large'>{icon}</span> {capacity}%",
+    "format-charging": "󰂄 {capacity}%",
+    "format-full": "󰂄 {capacity}%",
+    "format-icons": ["󰂎", "󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"],
+    "tooltip": true,
+    "tooltip-format": "{timeTo}\nPower: {power} Watt"
+  },
+  "network": {
+    "format-wifi": "<span color='#31748f' rise='-2pt' size='x-large'></span> {essid}",
+    "format-disconnected": "󰤫",
+    "format-disabled": "󰤮",
+    "format-ethernet": "󰈀 {essid}",
+    "tooltip-format": "subject name to change when on ethernet {ifname} via {gwaddr} 󰈀",
+    "tooltip-format-wifi": "ESSID: {essid}\nFrequency: {frequency} GHz\nStrength: {signalStrength}%\nIP: {ipaddr}",
+    "tooltip-format-disconnected": "Disconnected",
+    "on-click": "rfkill toggle wifi",
+    "on-click-right": "kitty --title floating_term_kitty --detach nmtui connect"
+  },
+  "custom/archIcon":{
+    "format": "󰣇",
+  },
+}
+

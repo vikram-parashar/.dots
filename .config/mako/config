@@ -1,0 +1,11 @@
+anchor=bottom-center
+background-color=#1A1B26CC
+border-color=#7aa2f7ff
+font= CaskaydiaCove Nerd Font Mono 12
+margin=25
+on-button-middle=dismiss-all
+padding=10
+width=500
+border-radius=10
+progress-color=over #7dcfffff
+default-timeout=5000

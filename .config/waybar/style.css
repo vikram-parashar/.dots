@@ -1,0 +1,74 @@
+@import "rose-pine.css";
+
+* {
+    font-family: "CaskaydiaCove Nerd Font Mono";
+    color:@text;
+    font-size: 14px;
+    margin:0;
+    padding:0;
+}
+
+window#waybar {
+  border-radius: 12px;
+  background-color: @base;
+}
+
+#custom-archIcon{
+   margin:0 12px;
+   font-size: 24px;
+   color:@foam;
+}
+
+#workspaces button.active {
+  border-bottom: 2px solid @iris;
+  border-radius:0;
+}
+
+#clock{
+  color: @rose;
+  margin: 8px 0;
+}
+
+#battery,
+#cpu,
+#memory,
+#backlight,
+#network,
+#pulseaudio,
+#tray,
+#custom-archIcon{
+  margin-right: 12px;
+}
+
+@keyframes blink {
+    from {
+        color: @rose;
+    }
+    to {
+        color: @love;
+    }
+}
+
+#battery{
+ color:@pine;
+}
+
+#battery.critical{
+  color:@love;
+}
+
+#battery.critical:not(.charging) {
+  color:@rose;
+  animation-name: blink;
+  animation-duration: 1.5s;
+  animation-timing-function:linear;
+  animation-iteration-count: infinite;
+}
+
+#network.disabled {
+  color:red;
+}
+
+#network.disconnected {
+  color:red;
+}
