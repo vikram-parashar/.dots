@@ -1,19 +1,17 @@
 local lsp = require("lsp-zero")
-
 lsp.preset("recommended")
 
 lsp.ensure_installed({
   'lua_ls',
   'cssls',
   'tailwindcss',
-  'docker_compose_language_service',
   'clangd',
   'eslint',
   'jsonls',
   'pyright',
   'sqlls',
   'tsserver',
-  'prettier',
+  'gopls',
 })
 
 -- Fix Undefined global 'vim'

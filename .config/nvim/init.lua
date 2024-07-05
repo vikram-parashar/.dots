@@ -1,1 +1,1 @@
-require("majorvicky")
+require('majorvicky')

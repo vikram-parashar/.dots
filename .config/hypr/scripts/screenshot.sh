@@ -1,6 +1,6 @@
 #!/usr/bin/env sh
 
-save_dir="~/img/snips/"
+save_dir="/home/vikram/img/snips/"
 save_file=$(date +'%y%m%d_%Hh%Mm%Ss_screenshot.png')
 
 gtkMode=`gsettings get org.gnome.desktop.interface color-scheme | sed "s/'//g" | awk -F '-' '{print $2}'`
