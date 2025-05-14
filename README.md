@@ -1,5 +1,3 @@
-You can organize the pre-requisites into a Markdown file like this:
-
 ```markdown
 # System Configuration Pre-Requisites
 
@@ -138,5 +136,4 @@ systemctl --user enable wireplumber
 
 ```bash
 sudo pacman -S wine lutris lutris
-```
 ```
