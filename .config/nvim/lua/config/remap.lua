@@ -38,10 +38,11 @@ vim.keymap.set("t", "<C-Right>", "<C-\\><C-N>:FloatermNext<CR>")
 -- switch from terminal to normal
 vim.keymap.set("t", "<Esc>", "<C-\\><C-N>") -- remove highlighting
 
--- Status Line
--- Move to previous/next
+-- Barbar
 vim.keymap.set('n', '<S-h>', '<Cmd>BufferPrevious<CR>')
 vim.keymap.set('n', '<S-l>', '<Cmd>BufferNext<CR>')
--- Close buffer
 vim.keymap.set('n', '<S-x>', '<Cmd>BufferClose<CR>')
 vim.keymap.set('n', '<S-z>', '<Cmd>BufferCloseAllButCurrent<CR>')
+
+-- Oil
+vim.keymap.set("n", "-", "<CMD>Oil<CR>", { desc = "Open parent directory" })
