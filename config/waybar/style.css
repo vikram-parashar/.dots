@@ -1,74 +1,87 @@
-@import "rose-pine.css";
+@import "styles/modules-left.css";
+@import "styles/modules-center.css";
+@import "styles/modules-right.css";
+@import "theme.css";
 
 * {
-    font-family: "CaskaydiaCove Nerd Font Mono";
-    color:@text;
-    font-size: 14px;
-    margin:0;
-    padding:0;
+	font-family: "0xProto Nerd Font";
+	font-weight: bold;
+	font-size: 16px;
+	color: @main-fg;
 }
+
+/* main outline */
 
 window#waybar {
-  border-radius: 12px;
-  background-color: @base;
+	background-color: @outline;
 }
 
-#custom-archIcon{
-   margin:0 12px;
-   font-size: 24px;
-   color:@foam;
+/* main background */
+
+window#waybar > box {
+	margin: 4px;
+	background-color: @main-bg;
 }
 
-#workspaces button.active {
-  border-bottom: 2px solid @iris;
-  border-radius:0;
+/* hoverables */
+
+#custom-theme_switcher:hover,
+#idle_inhibitor:hover,
+#clock.date:hover,
+#network:hover,
+#bluetooth:hover,
+#custom-system_update:hover,
+#mpris:hover,
+#pulseaudio:hover,
+#wireplumber:hover {
+	color: @hover-fg;
 }
 
-#clock{
-  color: @rose;
-  margin: 8px 0;
+/* states */
+
+.deactivated,
+.paused,
+#pulseaudio.output.muted,
+#pulseaudio.input.source-muted,
+#wireplumber.muted {
+	color: @hover-fg;
+}
+.warning { color: @warning; }
+.critical { color: @critical; }
+.charging { color: @charging; }
+
+/* dividers */
+
+#custom-left_div,
+#custom-left_inv,
+#custom-right_div,
+#custom-right_inv {
+	font-size: 23.1px;
 }
 
-#battery,
-#cpu,
-#memory,
-#backlight,
-#network,
-#pulseaudio,
-#tray,
-#custom-archIcon{
-  margin-right: 12px;
+/* buttons */
+
+button {
+	border-radius: 16px;
+	padding: 0 10px;
+}
+button:hover {
+	background-color: @hover-bg;
+	color: @hover-fg;
 }
 
-@keyframes blink {
-    from {
-        color: @rose;
-    }
-    to {
-        color: @love;
-    }
-}
+/* tooltips */
 
-#battery{
- color:@pine;
+tooltip {
+	border: 2px solid @main-br;
+	border-radius: 10px;
+	background-color: @main-bg;
 }
-
-#battery.critical{
-  color:@love;
+tooltip label {
+	margin: 2px 4px;
+	font-weight: normal;
 }
-
-#battery.critical:not(.charging) {
-  color:@rose;
-  animation-name: blink;
-  animation-duration: 1.5s;
-  animation-timing-function:linear;
-  animation-iteration-count: infinite;
-}
-
-#network.disabled {
-  color:red;
-}
-
-#network.disconnected {
-  color:red;
+tooltip decoration {
+	border: none;
+	background-color: transparent;
 }
