@@ -1,3 +1,6 @@
 return {
-  'voldikss/vim-floaterm'
+	"voldikss/vim-floaterm",
+	config = function()
+		vim.g.floaterm_wintype = "split"
+	end,
 }
