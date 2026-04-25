@@ -4,10 +4,12 @@ return {
 	config = function()
 		require("conform").setup({
 			formatters_by_ft = {
+				typescript = { "eslint" },
+				typescriptreact = { "eslint" },
+				javascript = { "eslint" },
+				javascriptreact = { "eslint" },
 				lua = { "stylua" },
 				python = { "ruff_format" },
-				javascript = { "prettierd" },
-				typescript = { "prettierd" },
 				yaml = { "prettierd" },
 				go = { "gofmt" },
 				sql = { "pg_format" },

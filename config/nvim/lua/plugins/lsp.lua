@@ -53,34 +53,44 @@ return {
 				"pyright",
 			},
 			handlers = {
+				-- Default setup for all servers
 				lsp.default_setup,
-			},
-		})
 
-		vim.lsp.config("pyright", {
-			before_init = function(_, config)
-				local venv = os.getenv("VIRTUAL_ENV")
-				if venv then
-					config.settings.python.pythonPath = venv .. "/bin/python"
-				end
-			end,
-			settings = {
-				python = {
-					analysis = {
-						typeCheckingMode = "basic", -- change to "strict" if you want
-						autoSearchPaths = true,
-						useLibraryCodeForTypes = true,
-					},
-				},
+				-- Specific setup for Pyright
+				function(server_name)
+					if server_name == "pyright" then
+						require("lspconfig").pyright.setup({
+							before_init = function(_, config)
+								local venv = os.getenv("VIRTUAL_ENV")
+								if venv then
+									config.settings.python.pythonPath = venv .. "/bin/python"
+								end
+							end,
+							settings = {
+								python = {
+									analysis = {
+										typeCheckingMode = "basic",
+										autoSearchPaths = true,
+										useLibraryCodeForTypes = true,
+									},
+								},
+							},
+						})
+					end
+				end,
 			},
 		})
-		vim.lsp.enable("pyright")
 
 		-- CMP
 		local cmp = require("cmp")
 		local cmp_action = require("lsp-zero").cmp_action()
 
 		cmp.setup({
+			sources = {
+				{ name = "nvim_lsp", group_index = 2 },
+				{ name = "path", group_index = 2 },
+				{ name = "luasnip", group_index = 2 },
+			},
 			mapping = {
 				["<CR>"] = cmp.mapping.confirm({ select = true }),
 				["<C-Space>"] = cmp.mapping.complete(),

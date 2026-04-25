@@ -60,3 +60,4 @@ alias client="cd ~/dev/mahatejas-innovations-site/frontend;npm run dev -- --host
 alias gr="git restore"
 alias gc="git checkout"
 alias gp="git push --set-upstream origin"
+export PATH="$HOME/.local/bin:$PATH"
