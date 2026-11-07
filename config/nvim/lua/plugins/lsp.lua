@@ -40,18 +40,7 @@ return {
 		require("mason").setup()
 
 		require("mason-lspconfig").setup({
-			ensure_installed = {
-				"prettierd",
-				"ruff",
-				"bashls",
-				"cssls",
-				"tombi",
-				"yamlls",
-				"ts_ls",
-				"jsonls",
-				"stylua",
-				"pyright",
-			},
+			ensure_installed = {},
 			handlers = {
 				-- Default setup for all servers
 				lsp.default_setup,
